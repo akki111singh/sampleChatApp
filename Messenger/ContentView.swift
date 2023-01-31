@@ -1,21 +1,32 @@
-//
-//  ContentView.swift
-//  Messenger
-//
-//  Created by Akhil1 Singh on 31/01/23.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var messagesManager = MessagesManager()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            VStack {
+                AppBar()
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        ForEach(messagesManager.messages, id: \.id) { msg in
+                            MessageBubble(message: msg)
+                        }
+                    }
+                    .padding(.top, 10)
+                    .background(Color.white)
+                    .onChange(of: messagesManager.lastMessageId) { id in
+                        withAnimation {
+                            proxy.scrollTo(id, anchor: .bottom)
+                        }
+                    }
+                }
+            }
+            .background(Color.blue)
+            
+            MessageField()
+                .environmentObject(messagesManager)
         }
-        .padding()
     }
 }
 

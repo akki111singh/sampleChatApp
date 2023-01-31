@@ -14,6 +14,14 @@
 		BA90885729884E1000996592 /* MessengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA90885629884E1000996592 /* MessengerTests.swift */; };
 		BA90886129884E1000996592 /* MessengerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA90886029884E1000996592 /* MessengerUITests.swift */; };
 		BA90886329884E1000996592 /* MessengerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA90886229884E1000996592 /* MessengerUITestsLaunchTests.swift */; };
+		BA9088722988510F00996592 /* AppBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9088712988510F00996592 /* AppBar.swift */; };
+		BAF5449E2989459A000AA0EC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF5449D2989459A000AA0EC /* Message.swift */; };
+		BAF544A0298945F6000AA0EC /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF5449F298945F6000AA0EC /* MessageBubble.swift */; };
+		BAF544A42989528D000AA0EC /* MessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF544A32989528D000AA0EC /* MessageField.swift */; };
+		BAF544AA298959BB000AA0EC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BAF544A9298959BB000AA0EC /* FirebaseFirestore */; };
+		BAF544AC298959BB000AA0EC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BAF544AB298959BB000AA0EC /* FirebaseFirestoreSwift */; };
+		BAF544B32989621C000AA0EC /* MessagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF544B22989621C000AA0EC /* MessagesManager.swift */; };
+		BAF544B529896901000AA0EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAF544B429896901000AA0EC /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,12 @@
 		BA90885C29884E1000996592 /* MessengerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MessengerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA90886029884E1000996592 /* MessengerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerUITests.swift; sourceTree = "<group>"; };
 		BA90886229884E1000996592 /* MessengerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BA9088712988510F00996592 /* AppBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBar.swift; sourceTree = "<group>"; };
+		BAF5449D2989459A000AA0EC /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		BAF5449F298945F6000AA0EC /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		BAF544A32989528D000AA0EC /* MessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageField.swift; sourceTree = "<group>"; };
+		BAF544B22989621C000AA0EC /* MessagesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesManager.swift; sourceTree = "<group>"; };
+		BAF544B429896901000AA0EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAF544AA298959BB000AA0EC /* FirebaseFirestore in Frameworks */,
+				BAF544AC298959BB000AA0EC /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,10 +110,14 @@
 		BA90884429884E0E00996592 /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
+				BAF544B429896901000AA0EC /* GoogleService-Info.plist */,
+				BAF5449C29894573000AA0EC /* Models */,
+				BA908870298850E000996592 /* Components */,
 				BA90884529884E0E00996592 /* MessengerApp.swift */,
 				BA90884729884E0E00996592 /* ContentView.swift */,
 				BA90884929884E1000996592 /* Assets.xcassets */,
 				BA90884B29884E1000996592 /* Preview Content */,
+				BAF544B22989621C000AA0EC /* MessagesManager.swift */,
 			);
 			path = Messenger;
 			sourceTree = "<group>";
@@ -127,6 +147,24 @@
 			path = MessengerUITests;
 			sourceTree = "<group>";
 		};
+		BA908870298850E000996592 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BA9088712988510F00996592 /* AppBar.swift */,
+				BAF5449F298945F6000AA0EC /* MessageBubble.swift */,
+				BAF544A32989528D000AA0EC /* MessageField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		BAF5449C29894573000AA0EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BAF5449D2989459A000AA0EC /* Message.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +181,10 @@
 			dependencies = (
 			);
 			name = Messenger;
+			packageProductDependencies = (
+				BAF544A9298959BB000AA0EC /* FirebaseFirestore */,
+				BAF544AB298959BB000AA0EC /* FirebaseFirestoreSwift */,
+			);
 			productName = Messenger;
 			productReference = BA90884229884E0E00996592 /* Messenger.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +257,9 @@
 				Base,
 			);
 			mainGroup = BA90883929884E0E00996592;
+			packageReferences = (
+				BAF544A8298959BB000AA0EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = BA90884329884E0E00996592 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +278,7 @@
 			files = (
 				BA90884D29884E1000996592 /* Preview Assets.xcassets in Resources */,
 				BA90884A29884E1000996592 /* Assets.xcassets in Resources */,
+				BAF544B529896901000AA0EC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +303,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA9088722988510F00996592 /* AppBar.swift in Sources */,
+				BAF5449E2989459A000AA0EC /* Message.swift in Sources */,
+				BAF544B32989621C000AA0EC /* MessagesManager.swift in Sources */,
+				BAF544A42989528D000AA0EC /* MessageField.swift in Sources */,
+				BAF544A0298945F6000AA0EC /* MessageBubble.swift in Sources */,
 				BA90884829884E0E00996592 /* ContentView.swift in Sources */,
 				BA90884629884E0E00996592 /* MessengerApp.swift in Sources */,
 			);
@@ -420,6 +471,7 @@
 				DEVELOPMENT_TEAM = L8J525PWGX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Messenger;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +501,7 @@
 				DEVELOPMENT_TEAM = L8J525PWGX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Messenger;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -583,6 +636,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BAF544A8298959BB000AA0EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BAF544A9298959BB000AA0EC /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BAF544A8298959BB000AA0EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		BAF544AB298959BB000AA0EC /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BAF544A8298959BB000AA0EC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BA90883A29884E0E00996592 /* Project object */;
 }
